@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>MiniMaxi Crafts - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,50 +12,320 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --cream: #F0EBEB;
+            --navy: #1B3644;
+            --orange: #E1790A;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #faf7f7 50%, var(--cream) 100%);
+            color: var(--navy);
             min-height: 100vh;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 600px;
+            text-align: center;
+            max-width: 800px;
             padding: 2rem;
+            position: relative;
+        }
+        
+        .logo-container {
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--orange);
+            margin: 0 auto;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--cream);
+            box-shadow: 0 20px 40px rgba(27, 54, 68, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(240, 235, 235, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        .logo::after {
+            content: 'MC';
         }
         
         h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
         
-        p {
-            font-size: 1.2rem;
+        .subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: var(--navy);
             opacity: 0.8;
+            line-height: 1.4;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            color: var(--navy);
+            opacity: 0.7;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+        
+        .notify-section {
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+        
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            color: var(--navy);
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(27, 54, 68, 0.1);
+        }
+        
+        .email-input::placeholder {
+            color: var(--navy);
+            opacity: 0.6;
+        }
+        
+        .email-input:focus {
+            border-color: var(--orange);
+            box-shadow: 0 10px 40px rgba(225, 121, 10, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .notify-btn {
+            padding: 1rem 2rem;
+            background: var(--orange);
+            color: var(--cream);
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(225, 121, 10, 0.3);
+            min-width: 140px;
+        }
+        
+        .notify-btn:hover {
+            background: #d16a08;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(225, 121, 10, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(27, 54, 68, 0.2);
+        }
+        
+        .social-link:hover {
+            background: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(225, 121, 10, 0.3);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--orange);
+            opacity: 0.1;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+            width: 40px;
+            height: 40px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            50% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .container {
+                padding: 1.5rem;
             }
             
-            p {
-                font-size: 1rem;
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+            
+            .email-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .email-input {
+                min-width: unset;
+            }
+            
+            .floating-elements {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+    
     <div class="container">
-        <h1>Coming Soon</h1>
-        <p>We're working hard to bring you something amazing. Stay tuned!</p>
+        <div class="logo-container">
+            <div class="logo"></div>
+        </div>
+        
+        <h1>Something Amazing is Coming</h1>
+        
+        <p class="subtitle">MiniMaxi Crafts</p>
+        
+        <p class="description">
+            We're putting the finishing touches on our new website. 
+            Get ready for something extraordinary!
+        </p>
+        
+        <div class="notify-section">
+            <form class="email-form" onsubmit="return false;">
+                <input 
+                    type="email" 
+                    class="email-input" 
+                    placeholder="Enter your email address"
+                    required
+                >
+                <button type="submit" class="notify-btn">Notify Me</button>
+            </form>
+            
+            <div class="social-links">
+                <a href="#" class="social-link" title="Instagram">📷</a>
+                <a href="#" class="social-link" title="Facebook">📘</a>
+                <a href="#" class="social-link" title="Twitter">🐦</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

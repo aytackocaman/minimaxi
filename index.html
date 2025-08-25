@@ -20,7 +20,7 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, var(--cream) 0%, #faf7f7 50%, var(--cream) 100%);
+            background: var(--cream);
             color: var(--navy);
             min-height: 100vh;
             display: flex;
@@ -44,34 +44,21 @@
         .logo {
             width: 120px;
             height: 120px;
-            background: var(--orange);
             margin: 0 auto;
             border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--cream);
             box-shadow: 0 20px 40px rgba(27, 54, 68, 0.1);
             position: relative;
             overflow: hidden;
         }
         
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(240, 235, 235, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-        
-        .logo::after {
-            content: 'MC';
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 24px;
         }
         
         h1 {
@@ -105,69 +92,13 @@
             animation: fadeInUp 1s ease-out 0.9s both;
         }
         
-        .notify-section {
-            animation: fadeInUp 1s ease-out 1.2s both;
-        }
         
-        .email-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto 2rem auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .email-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: 2px solid transparent;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            color: var(--navy);
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(27, 54, 68, 0.1);
-        }
-        
-        .email-input::placeholder {
-            color: var(--navy);
-            opacity: 0.6;
-        }
-        
-        .email-input:focus {
-            border-color: var(--orange);
-            box-shadow: 0 10px 40px rgba(225, 121, 10, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .notify-btn {
-            padding: 1rem 2rem;
-            background: var(--orange);
-            color: var(--cream);
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(225, 121, 10, 0.3);
-            min-width: 140px;
-        }
-        
-        .notify-btn:hover {
-            background: #d16a08;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(225, 121, 10, 0.4);
-        }
         
         .social-links {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
         
         .social-link {
@@ -273,14 +204,6 @@
                 font-size: 2.5rem;
             }
             
-            .email-form {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .email-input {
-                min-width: unset;
-            }
             
             .floating-elements {
                 display: none;
@@ -297,7 +220,9 @@
     
     <div class="container">
         <div class="logo-container">
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="logo_orange.png" alt="MiniMaxi Crafts Logo">
+            </div>
         </div>
         
         <h1>Something Amazing is Coming</h1>
@@ -309,22 +234,8 @@
             Get ready for something extraordinary!
         </p>
         
-        <div class="notify-section">
-            <form class="email-form" onsubmit="return false;">
-                <input 
-                    type="email" 
-                    class="email-input" 
-                    placeholder="Enter your email address"
-                    required
-                >
-                <button type="submit" class="notify-btn">Notify Me</button>
-            </form>
-            
-            <div class="social-links">
-                <a href="#" class="social-link" title="Instagram">📷</a>
-                <a href="#" class="social-link" title="Facebook">📘</a>
-                <a href="#" class="social-link" title="Twitter">🐦</a>
-            </div>
+        <div class="social-links">
+            <a href="https://instagram.com/minimaxicrafts" class="social-link" title="Follow us on Instagram" target="_blank">📷</a>
         </div>
     </div>
 </body>
